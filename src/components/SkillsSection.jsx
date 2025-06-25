@@ -36,14 +36,13 @@ const skills = [
     { name: "IDS", level: 2, category: "cybersecurity" },
     { name: "AWS Cloud", level: 3, category: "cloud" },
     { name: "Google Cloud Platform", level: 2, category: "cloud" },
-    { name: "Cloud IAM (GCP)", level: 2, category: "cloud" },
-    { name: "Cloud Monitoring (GCP)", level: 2, category: "cloud" },
+    { name: "Cloud IAM", level: 2, category: "cloud" },
+    { name: "Cloud Monitoring", level: 2, category: "cloud" },
     { name: "Git", level: 5, category: "tools" },
     { name: "GitHub", level: 5, category: "tools" },
     { name: "Postman", level: 5, category: "tools" },
     { name: "Bash", level: 2, category: "tools" },
-    { name: "Linux CLI", level: 3, category: "tools" }
-
+    { name: "Linux CLI", level: 3, category: "tools" },
 ];
 
 const categories = ["all", "frontend", "backend", "cybersecurity", "cloud", "tools"];
@@ -54,26 +53,49 @@ export const SkillsSection = () => {
     const [itemsPerPage, setItemsPerPage] = useState(9);
     const [searchTerm, setSearchTerm] = useState("");
 
-const SkillLevelBar = ({ level }) => {
-  const barCount = level;
-  const totalBars = 5;
+    const SkillLevelBar = ({ level }) => {
+        const barCount = level;
+        const totalBars = 5;
 
-return (
-    <div className="flex items-center gap-1">
-        <div className="flex gap-1">
-            {[...Array(totalBars)].map((_, index) => (
-                <div
-                    key={index}
-                    className={cn(
-                        "w-3 h-6 transition-colors duration-300",
-                        index < barCount ? "bg-primary" : "bg-muted/30"
-                    )}
-                />
-            ))}
-        </div>
-    </div>
-);
-};
+        return (
+            <div className="flex items-center gap-1">
+                <div className="flex gap-1">
+                    {[...Array(totalBars)].map((_, index) => (
+                        <div
+                            key={index}
+                            className={cn(
+                                "w-3 h-6 transition-colors duration-300",
+                                index < barCount ? "bg-primary" : "bg-muted/30"
+                            )}
+                        />
+                    ))}
+                </div>
+            </div>
+        );
+    };
+
+    const SkillLevelTag = ({ level }) => {
+        if (level < 3) {
+            return (
+                <div className="flex items-center border border-blue-500 rounded-sm bg-blue-500/10 w-[40%] justify-center">
+                    <span className="text-xs text-blue-500 p-2">Beginner</span>
+                </div>
+            );
+        } else if (level < 4) {
+            return (
+                <div className="flex items-center border border-yellow-500 rounded-sm bg-yellow-500/10 w-[40%] justify-center">
+                    <span className="text-xs text-yellow-500 p-2">Intermediate</span>
+                </div>
+            );
+        } else {
+            return (
+                <div className="flex items-center border border-green-500 rounded-sm bg-green-500/10 w-[40%] justify-center">
+                    <span className="text-xs text-green-500 p-2">Advanced</span>
+                </div>
+            );
+        }
+
+    };
 
     useEffect(() => {
         const updateItemsPerPage = () => {
@@ -195,12 +217,9 @@ return (
                                     className="bg-card rounded-lg shadow-xs card-hover ligthmode-border"
                                 >
                                     <div className="flex flex-col items-center justify-center h-full py-5">
-                                        <h3 className="font-semibold text-lg pb-1">{skill.name}</h3>
-                                        <span className={cn(
-                                            "px-2 py-1 text-sm border border-primary",
-                                            )}>
-                                            <SkillLevelBar level={skill.level} />
-                                        </span>
+                                        <h3 className="font-semibold text-lg pb-3">{skill.name}</h3>
+                                        {/* <SkillLevelBar level={skill.level} /> */}
+                                        <SkillLevelTag level={skill.level} />
                                     </div>
                                 </div>
                             ))}
@@ -208,8 +227,8 @@ return (
                     )}
                 </div>
                 {/* Paginación */}
-                {totalPages > 1 && filteredSkills.length > 0 && (
-                    <div className="flex justify-center gap-2 mt-8">
+                {totalPages > 1 && filteredSkills.length > 0 && window.innerWidth >= 640 && (
+                    <div className="flex justify-center gap-2 mt-15">
                         {[...Array(totalPages)].map((_, index) => (
                             <button
                                 key={index}
@@ -224,6 +243,36 @@ return (
                                 {index + 1}
                             </button>
                         ))}
+                    </div>
+                )}
+                {totalPages > 1 && filteredSkills.length > 0 && window.innerWidth <= 640 && (
+                    <div className="flex justify-center gap-2 mt-15">
+                        <button
+                            onClick={() => handlePageChange(currentPage - 1)}
+                            disabled={currentPage === 1}
+                            className={cn(
+                                "px-4 py-2 rounded-lg transition-colors duration-300",
+                                currentPage === 1
+                                    ? "bg-gray-500 text-primary-foreground cursor-not-allowed"
+                                    : "border ligthmode-border hover:bg-primary/30 cursor-pointer"
+                            )}
+                        >
+                            Prev
+                        </button>
+                        <span className="px-4 py-2">{currentPage} of {totalPages}</span>
+                        <button
+                            onClick={() => handlePageChange(currentPage + 1)}
+                            disabled={currentPage === totalPages}
+                            className={cn(
+                                "px-4 py-2 rounded-lg transition-colors duration-300",
+                                currentPage === totalPages
+                                    ? "bg-gray-700 text-primary-foreground cursor-not-allowed"
+                                    : "border ligthmode-border hover:bg-primary/30 cursor-pointer"
+                            )}
+                        >
+                            Next
+                        </button>
+
                     </div>
                 )}
             </div>
