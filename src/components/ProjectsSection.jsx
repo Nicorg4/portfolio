@@ -1,5 +1,4 @@
 import { ArrowRight, Code, ExternalLink, Github } from 'lucide-react'
-import React from 'react'
 
 const Projects = [
     {
@@ -10,6 +9,7 @@ const Projects = [
         tags: ['React', 'Node', 'PostgreSQL'],
         frontURL: 'https://github.com/Nicorg4/2024-thetarnished-frontend',
         backURL: 'https://github.com/Nicorg4/2024-thetarnished',
+        appURL: 'https://2024-thetarnished-frontend-2xbba0i5u-nicorg4s-projects.vercel.app/',
     },
     {
         id: 2,
@@ -19,15 +19,17 @@ const Projects = [
         tags: ['Next', 'Node', 'Tailwind'],
         frontURL: 'https://github.com/Nicorg4/PDH-tournament-app',
         backURL: 'https://github.com/Nicorg4/pdh-tournament-app-server',
+        appURL: '',
     },
     {
         id: 3,
-        title: 'Personal assistant',
-        description: 'Virtual assistant that listens, understands, and performs system tasks through voice commands.',
+        title: 'CV Generator',
+        description: 'Web app that collects user data through a step-by-step form and returns a polished Harvard-style PDF resume.',
         image: '/projects/project3.webp',
-        tags: ['Python', 'pyttsx3', 'neuralintents'],
-        frontURL: '',
-        backURL: 'https://github.com/Nicorg4/personal-assistant',
+        tags: ['React', 'Node', 'Puppeteer'],
+        frontURL: 'https://github.com/Nicorg4/cv-generator',
+        backURL: 'https://github.com/Nicorg4/cv-generator-server',
+        appURL: 'https://vercel.com/nicorg4s-projects/cv-generator',
     },
 ]
 
@@ -55,15 +57,22 @@ const ProjectsSection = () => {
                                     ))}
                                 </div>
                                 <div className='flex justify-between items-center'>
-                                    <div className='flex space-x-3 justify-center items-center w-full'>
-                                        {project.frontURL && (
-                                        <a href={project.frontURL} target="_blank" className='flex gap-2 hover:bg-primary transition-colors duration-300 border p-1 px-3 rounded-lg main-button'>
-                                            <Code/> Front
+                                    <div className='flex justify-center items-center w-full'>
+                                        {project.appURL && (
+                                        <a href={project.backURL} target="_blank" className='flex gap-1 hover:bg-primary transition-colors duration-300 border p-1 px-2 rounded-lg main-button text-[14px]'>
+                                            <ExternalLink width={20} height={20}/> App
                                         </a>
                                         )}
-                                        <a href={project.backURL} target="_blank" className='flex gap-2 hover:bg-primary transition-colors duration-300 border p-1 px-3 rounded-lg main-button'>
-                                            <Code/> Back
+                                        {project.frontURL && (
+                                        <a href={project.frontURL} target="_blank" className='flex gap-1 hover:bg-primary transition-colors duration-300 border p-1 px-2 rounded-lg main-button text-[14px]'>
+                                            <Code width={20} height={20}/> Front
                                         </a>
+                                        )}
+                                        {project.frontURL && (
+                                        <a href={project.backURL} target="_blank" className='flex gap-1 hover:bg-primary transition-colors duration-300 border p-1 px-2 rounded-lg main-button text-[14px]'>
+                                            <Code width={20} height={20}/> Back
+                                        </a>
+                                        )}
                                     </div>
                                 </div>
                             </div>
