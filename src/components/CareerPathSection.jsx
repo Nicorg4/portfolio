@@ -49,7 +49,7 @@ const TimelineColumn = ({ items, type }) => (
         {items.map((item, index) => (
             <div key={index} className="relative flex items-start">
                 <span className="absolute -left-8 top-8 w-7 h-7 rounded-lg bg-primary border-4 border-background z-10"></span>
-                <div className="bg-card p-6 pr-10 pl-10 rounded-lg shadow-xs w-full">
+                <div className="bg-card p-6 pr-10 pl-10 rounded-lg shadow-xs w-full card-hover">
                     <h4 className="font-bold text-[18px] text-left">{item.title}</h4>
                     <p className="text-[15px] mt-2 text-left mb-3 border-b border-muted-foreground pb-3">{item.description}</p>
                     <div className="flex items-center justify-between">
