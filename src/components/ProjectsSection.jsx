@@ -27,7 +27,7 @@ const Projects = [
         description: 'Web app that collects user data through a step-by-step form and returns a polished Harvard-style PDF resume.',
         image: '/projects/project3.webp',
         tags: ['React', 'Node', 'Puppeteer'],
-        frontURL: 'https://github.com/Nicorg4/cv-generator',
+        frontURL: 'https://cv-generator-bice.vercel.app/',
         backURL: 'https://github.com/Nicorg4/cv-generator-server',
         appURL: 'https://vercel.com/nicorg4s-projects/cv-generator',
     },
