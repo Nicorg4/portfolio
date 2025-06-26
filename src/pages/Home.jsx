@@ -5,6 +5,7 @@ import { Navbar } from '../components/Navbar'
 import ProjectsSection from '../components/ProjectsSection'
 import { SkillsSection } from '../components/SkillsSection'
 import { StarBackground } from '../components/StarBackground'
+import CarreerPathSection from '../components/CareerPathSection'
 
 export const Home = () => {
     return (
@@ -17,6 +18,7 @@ export const Home = () => {
             <main>
                 <HeroSection />
                 <AboutMeSection />
+                <CarreerPathSection />
                 <SkillsSection />
                 <ProjectsSection />
             </main>

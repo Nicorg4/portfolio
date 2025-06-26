@@ -6,6 +6,7 @@ import { ThemeToggle } from "./ThemeToggle";
 const navItems = [
     { name: "Home", href: "#hero" },
     { name: "About", href: "#about" },
+    { name: "Career Path", href: "#careerpath" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
 ];
@@ -29,16 +30,6 @@ export const Navbar = () => {
             className={cn("fixed w-full z-40 transition-colors duration-300 mt-10")}
         >
             <div className="md:container flex items-center md:justify-center justify-end pr-5">
-                {/* <a
-                className="text-xl font-bold text-primary flex items-center"
-                href="#hero"
-                >
-                <span className="relative z-10">
-                    <span className="text-glow text-foreground"> Nicolas Gota </span>{" "}
-                    Portfolio
-                </span>
-                </a> */}
-
                 {/* desktop nav */}
                 <div
                     className={cn(
@@ -50,7 +41,7 @@ export const Navbar = () => {
                         <a
                             key={key}
                             href={item.href}
-                            className={`text-foreground/80 hover:text-primary font-bold transition-colors duration-300 ${key !== 0 && "pl-8 border-l-2 border-specialborder/50"} ${key === 3 ? "pr-3" : ""}`}
+                            className={`text-foreground/80 hover:text-primary font-bold transition-colors duration-300 ${key !== 0 && "pl-8 border-l-2 border-specialborder/50"} ${key === 4 ? "pr-3" : ""}`}
                         >
                             {item.name}
                         </a>
