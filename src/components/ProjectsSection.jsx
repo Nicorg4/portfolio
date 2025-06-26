@@ -9,7 +9,7 @@ const Projects = [
         tags: ['React', 'Node', 'PostgreSQL'],
         frontURL: 'https://github.com/Nicorg4/2024-thetarnished-frontend',
         backURL: 'https://github.com/Nicorg4/2024-thetarnished',
-        appURL: 'https://2024-thetarnished-frontend-2xbba0i5u-nicorg4s-projects.vercel.app/',
+        appURL: 'https://2024-thetarnished-frontend.vercel.app/',
     },
     {
         id: 2,
@@ -27,7 +27,7 @@ const Projects = [
         description: 'Web app that collects user data through a step-by-step form and returns a polished Harvard-style PDF resume.',
         image: '/projects/project3.webp',
         tags: ['React', 'Node', 'Puppeteer'],
-        frontURL: 'https://vercel.com/nicorg4s-projects/cv-generator',
+        frontURL: 'https://github.com/Nicorg4/cv-generator',
         backURL: 'https://github.com/Nicorg4/cv-generator-server',
         appURL: 'https://cv-generator-bice.vercel.app/',
     },
@@ -59,7 +59,7 @@ const ProjectsSection = () => {
                                 <div className='flex justify-between items-center'>
                                     <div className='flex justify-center items-center w-full'>
                                         {project.appURL && (
-                                        <a href={project.backURL} target="_blank" className='flex gap-1 hover:bg-primary transition-colors duration-300 border p-1 px-2 rounded-lg main-button text-[14px]'>
+                                        <a href={project.appURL} target="_blank" className='flex gap-1 hover:bg-primary transition-colors duration-300 border p-1 px-2 rounded-lg main-button text-[14px]'>
                                             <ExternalLink width={20} height={20}/> App
                                         </a>
                                         )}
